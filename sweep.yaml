@@ -1,5 +1,5 @@
-# Sweep AI turns bugs & feature requests into code changes (https://sweep.dev)
-# For details on our config file, check out our docs at https://docs.sweep.dev/usage/config
+# This is the configuration file for Sweep AI, a tool that automatically turns bugs and feature requests into code changes.
+# For more details on how to configure this file, refer to our documentation at https://docs.sweep.dev/usage/config
 
 # This setting contains a list of rules that Sweep will check for. If any of these rules are broken in a new commit, Sweep will create an pull request to fix the broken rule.
 rules:
@@ -14,6 +14,12 @@ gha_enabled: True
 
 # This is the description of your project. It will be used by sweep when creating PRs. You can tell Sweep what's unique about your project, what frameworks you use, or anything else you want.
 #
+# The 'rules' section lists the coding rules that Sweep will enforce. If a new commit violates any of these rules, Sweep will automatically create a pull request to fix the violation.
+# The 'branch' setting specifies the branch that Sweep will use for development and pull requests. Common choices are 'main', 'master', 'dev', or 'staging'.
+# The 'gha_enabled' setting controls whether Sweep will read logs and outputs from your existing Github Actions. If set to false, this feature is disabled.
+# The 'rules' section lists the coding rules that Sweep will enforce. If a new commit violates any of these rules, Sweep will automatically create a pull request to fix the violation.
+# The 'branch' setting specifies the branch that Sweep will use for development and pull requests. Common choices are 'main', 'master', 'dev', or 'staging'.
+# The 'gha_enabled' setting controls whether Sweep will read logs and outputs from your existing Github Actions. If set to false, this feature is disabled.
 # Example:
 #
 # description: sweepai/sweep is a python project. The main api endpoints are in sweepai/api.py. Write code that adheres to PEP8.
@@ -29,11 +35,18 @@ blocked_dirs: []
 #
 # Example:
 #
+# The 'draft' setting controls whether Sweep creates pull requests as drafts. If set to true, all pull requests will be created as drafts and GitHub Actions will not be triggered.
+# The 'blocked_dirs' setting is a list of directories that Sweep is not allowed to edit.
+# The 'docs' setting is a list of documentation links that Sweep can use to better understand your code. You can add links to documentation for any packages you use here.
+# The 'description' setting is where you can provide a brief description of your project. This information will be used by Sweep when creating pull requests. You can include details about your project's unique features, the frameworks you use, and any other relevant information.
+# The 'draft' setting controls whether Sweep creates pull requests as drafts. If set to true, all pull requests will be created as drafts and GitHub Actions will not be triggered.
+# The 'blocked_dirs' setting is a list of directories that Sweep is not allowed to edit.
+# The 'docs' setting is a list of documentation links that Sweep can use to better understand your code. You can add links to documentation for any packages you use here.
 # docs:
 #   - PyGitHub: ["https://pygithub.readthedocs.io/en/latest/", "We use pygithub to interact with the GitHub API"]
 docs: []
 
-# Sandbox executes commands in a sandboxed environment to validate code changes after every edit to guarantee pristine code. For more details, see the [Sandbox](./sandbox) page.
+# The 'sandbox' section contains commands that Sweep executes in a sandboxed environment to validate code changes after every edit, ensuring the integrity of the code. For more details, see the [Sandbox](./sandbox) page.
 sandbox:
   install:
     - trunk init
